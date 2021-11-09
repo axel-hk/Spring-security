@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>find</title>
+</head>
+<body>
+
+<form  th:object = "${note}" th:action="@{/app/find}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <input type="text" th:value = "*{firstName}" name="firstName" placeholder="имя"/>
+  <input type="text" th:value = "*{lastName}" name="lastName" placeholder="фамилия"/>
+  <input type="text" th:value = "*{address}" name="address" placeholder="адрес"/>
+  <button type="submit">find</button>
+</form>
+</body>
+</html>

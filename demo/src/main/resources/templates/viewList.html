@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf.extras.springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+<!--    <div sec:authentication="name">Иван Иванов</div>-->
+    <input type="submit" value="Выйти из учетной записи"/>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>number</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>address</th>
+        <th>view</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--    /*@thymesVar id="note" type="com.sberalex.address.domain.Note"*/-->
+    <tr th:each="note, number : ${db}">
+        <td th:text="${number.index} + 1"></td>
+        <td th:text="${note.firstName}"></td>
+        <td th:text="${note.lastName}"></td>
+        <td th:text="${note.address}"></td>
+        <td><a th:href="@{'/app/' + ${note.id} + '/show'}">show</a></td>
+        <td><a th:href="@{'/app/' + ${note.id} + '/edit'}">edit</a></td>
+        <td><a th:href="@{'/app/' + ${note.id} + '/delete'}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

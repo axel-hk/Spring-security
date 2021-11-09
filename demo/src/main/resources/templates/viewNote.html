@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>lastname</th>
+        <th>firstname</th>
+        <th>address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--/*@thymesVar id="note" type="com.sberalex.address.domain.Note"*/-->
+    <tr>
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.firstName}"></td>
+        <td th:text="${note.lastName}"></td>
+        <td th:text="${note.address}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
